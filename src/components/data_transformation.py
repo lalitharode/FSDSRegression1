@@ -119,3 +119,9 @@ class DataTransformation:
             logging.info("Exception occured in the initiate_datatransformation")
 
             raise CustomException(e,sys)
+        
+if __name__ == '__main__':
+    obj = DataTransformation()
+    train_path = os.path.join(os.getcwd(), 'artifacts', 'train.csv')  # Add your train path
+    test_path = os.path.join(os.getcwd(), 'artifacts', 'test.csv')    # Add your test path
+    obj.initaite_data_transformation(train_path, test_path)   # we can make pkl file from here or from data ingestion as well

@@ -69,3 +69,31 @@ class CustomData:
         except Exception as e:
             logging.info('Exception Occured in prediction pipeline')
             raise CustomException(e,sys)
+
+
+if __name__ == "__main__":
+    # Example input data
+    custom_data = CustomData(
+        carat=0.23,
+        depth=61.5,
+        table=55.0,
+        x=3.95,
+        y=3.98,
+        z=2.43,
+        cut='Ideal',
+        color='E',
+        clarity='SI2'
+    )
+
+    # Get the input data as a DataFrame
+    data_df = custom_data.get_data_as_dataframe()
+
+    # Initialize the PredictPipeline class
+    predict_pipeline = PredictPipeline()
+
+    # Make predictions using the PredictPipeline
+    prediction = predict_pipeline.predict(data_df)
+
+    # Print the prediction result
+    print(f"Prediction result: {prediction}")
+
